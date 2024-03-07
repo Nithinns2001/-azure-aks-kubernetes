@@ -112,6 +112,9 @@ docker images $ACR_REGISTRY/$ACR_NAMESPACE/$ACR_IMAGE_NAME:$ACR_IMAGE_TAG
 
 # Push Docker Images
 docker push $ACR_REGISTRY/$ACR_NAMESPACE/$ACR_IMAGE_NAME:$ACR_IMAGE_TAG
+## windows
+docker push %ACR_REGISTRY%/%ACR_NAMESPACE%/%ACR_IMAGE_NAME%:%ACR_IMAGE_TAG%
+
 ```
 ### Verify Docker Image in ACR Repository
 - Go to Services -> Container Registries -> acrdemo2ss
