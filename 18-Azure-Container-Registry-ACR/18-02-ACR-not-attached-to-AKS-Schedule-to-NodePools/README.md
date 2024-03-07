@@ -89,6 +89,15 @@ export ACR_IMAGE_NAME=acr-app2
 export ACR_IMAGE_TAG=v1
 echo $ACR_REGISTRY, $ACR_NAMESPACE, $ACR_IMAGE_NAME, $ACR_IMAGE_TAG
 
+## windows(cmd)
+set ACR_REGISTRY=acrdemo2ssnit.azurecr.io
+set ACR_NAMESPACE=app2
+set ACR_IMAGE_NAME=acr-app2
+set ACR_IMAGE_TAG=v1
+
+echo %ACR_REGISTRY%, %ACR_NAMESPACE%, %ACR_IMAGE_NAME%, %ACR_IMAGE_TAG%
+
+
 # Login to ACR
 docker login $ACR_REGISTRY
 
