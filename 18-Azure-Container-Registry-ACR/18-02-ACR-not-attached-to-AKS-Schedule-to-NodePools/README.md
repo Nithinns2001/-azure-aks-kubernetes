@@ -200,6 +200,15 @@ kubectl create secret docker-registry <secret-name> \
     --docker-username=<service-principal-ID> \
     --docker-password=<service-principal-password>
 
+## windows
+
+kubectl create secret docker-registry acrdemo2ss-secret `
+    --namespace default `
+    --docker-server=acrdemo2ssnit.azurecr.io `
+    --docker-username=73445cd6-9e7a-4bfe-90f2-229bba6f72fa `
+    --docker-password=aco8Q~ApMmUINX69kbcaXyJQz0eWovcYoHJlAcJ~
+
+
 # Replace
 kubectl create secret docker-registry acrdemo2ss-secret \
     --namespace default \
