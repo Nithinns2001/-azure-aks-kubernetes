@@ -100,6 +100,9 @@ echo %ACR_REGISTRY%, %ACR_NAMESPACE%, %ACR_IMAGE_NAME%, %ACR_IMAGE_TAG%
 
 # Login to ACR
 docker login $ACR_REGISTRY
+## In windows (cmd)
+docker login %ACR_REGISTRY%
+
 
 # Tag
 docker tag kube-nginx-acr:v1  $ACR_REGISTRY/$ACR_NAMESPACE/$ACR_IMAGE_NAME:$ACR_IMAGE_TAG
