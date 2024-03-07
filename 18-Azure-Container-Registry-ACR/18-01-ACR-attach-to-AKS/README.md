@@ -90,6 +90,8 @@ export ACR_IMAGE_NAME=kube-nginx-acr
 export ACR_IMAGE_TAG=v1
 echo $ACR_REGISTRY, $ACR_NAMESPACE, $ACR_IMAGE_NAME, $ACR_IMAGE_TAG
 
+## Set command to be used in place of export in cmd (windows) combine all commands in one line
+
 # Login to ACR
 docker login $ACR_REGISTRY
 
