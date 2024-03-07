@@ -93,6 +93,10 @@ echo $ACR_REGISTRY, $ACR_NAMESPACE, $ACR_IMAGE_NAME, $ACR_IMAGE_TAG
 ## Set command to be used in place of export in cmd (windows) combine all commands in one line
 set ACR_REGISTRY=acrforaksdemo2nit.azurecr.io && set ACR_NAMESPACE=app1 && set ACR_IMAGE_NAME=kube-nginx-acr && set ACR_IMAGE_TAG=v1
 
+## Verify
+echo %ACR_REGISTRY%, %ACR_NAMESPACE%, %ACR_IMAGE_NAME%, %ACR_IMAGE_TAG%
+
+
 
 # Login to ACR
 docker login $ACR_REGISTRY
