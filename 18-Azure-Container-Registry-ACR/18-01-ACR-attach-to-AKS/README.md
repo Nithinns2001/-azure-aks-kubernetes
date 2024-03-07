@@ -126,7 +126,9 @@ docker push $ACR_REGISTRY/$ACR_NAMESPACE/$ACR_IMAGE_NAME:$ACR_IMAGE_TAG
 #Set ACR NAME
 export ACR_NAME=acrforaksdemo2
 echo $ACR_NAME
-
+## windows(cmd)
+set ACR_REGISTRY=acrforaksdemo2nit.azurecr.io
+echo %ACR_NAME%
 # Template
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-name>
 
