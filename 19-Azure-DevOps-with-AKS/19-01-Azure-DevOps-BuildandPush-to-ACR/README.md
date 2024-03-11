@@ -102,6 +102,7 @@ https://github.com/stacksimplify/azure-devops-github-acr-aks-app1
 - Commit Message: Pipeline-1: Docker Build and Push to ACR
 - Commit directly to master branch: check
 - Click on **Save and Run**
+  ## create service connection for docker registry select ACR and give the service connection name in yml file in the variable  dockerRegistryServiceConnection
 
 ## Step-08: Review Build Logs & Docker Image in ACR
 - Review Build logs
