@@ -61,6 +61,9 @@ cd $HOME/.kube
 >config
 cat config
 
+## refer this link for windows
+https://chat.openai.com/share/3cad63f3-c661-4cb0-97f3-7f3e03fdeb27
+
 # View kubeconfig
 kubectl config view
 
