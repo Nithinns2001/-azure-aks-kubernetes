@@ -43,6 +43,8 @@ az aks create --resource-group %RESOURCE_GROUP% --name %AKS_CLUSTER% --enable-ma
 
 # Configure Credentials
 az aks get-credentials --name ${AKS_CLUSTER}  --resource-group ${RESOURCE_GROUP} 
+## windows cmd
+az aks get-credentials --name %AKS_CLUSTER% --resource-group %RESOURCE_GROUP%
 
 # List Nodes
 kubectl get nodes
