@@ -27,6 +27,13 @@ echo $AKS_RESOURCE_GROUP, $AKS_REGION
 # Create Resource Group
 az group create --location ${AKS_REGION} \
                 --name ${AKS_RESOURCE_GROUP}
+
+## set AKS_RESOURCE_GROUP=aks-prod
+set AKS_REGION=centralus
+echo %AKS_RESOURCE_GROUP%, %AKS_REGION%
+
+az group create --location %AKS_REGION% --name %AKS_RESOURCE_GROUP%
+
 ```
 
 
@@ -45,6 +52,17 @@ AKS_VNET_SUBNET_DEFAULT_PREFIX=10.240.0.0/16
 AKS_VNET_SUBNET_VIRTUALNODES=aks-subnet-virtual-nodes
 AKS_VNET_SUBNET_VIRTUALNODES_PREFIX=10.241.0.0/16
 
+## windows cmd
+set AKS_VNET=aks-vnet
+set AKS_VNET_ADDRESS_PREFIX=10.0.0.0/8
+set AKS_VNET_SUBNET_DEFAULT=aks-subnet-default
+set AKS_VNET_SUBNET_DEFAULT_PREFIX=10.240.0.0/16
+set AKS_VNET_SUBNET_VIRTUALNODES=aks-subnet-virtual-nodes
+set AKS_VNET_SUBNET_VIRTUALNODES_PREFIX=10.241.0.0/16
+
+echo %AKS_VNET%, %AKS_VNET_ADDRESS_PREFIX%, %AKS_VNET_SUBNET_DEFAULT%, %AKS_VNET_SUBNET_DEFAULT_PREFIX%, %AKS_VNET_SUBNET_VIRTUALNODES%, %AKS_VNET_SUBNET_VIRTUALNODES_PREFIX%
+
+
 # Create Virtual Network & default Subnet
 az network vnet create -g ${AKS_RESOURCE_GROUP} \
                        -n ${AKS_VNET} \
@@ -59,6 +77,17 @@ az network vnet subnet create \
     --name ${AKS_VNET_SUBNET_VIRTUALNODES} \
     --address-prefixes ${AKS_VNET_SUBNET_VIRTUALNODES_PREFIX}
 
+## windows cmd
+az network vnet create --resource-group %AKS_RESOURCE_GROUP% --name %AKS_VNET% --address-prefix %AKS_VNET_ADDRESS_PREFIX% : create vnet first create vnet then proceed to subnet
+
+az network vnet subnet create ^
+    --resource-group %AKS_RESOURCE_GROUP% ^
+    --vnet-name %AKS_VNET% ^
+    --name %AKS_VNET_SUBNET_VIRTUALNODES% ^
+    --address-prefix %AKS_VNET_SUBNET_VIRTUALNODES_PREFIX%   # create subnet
+
+
+
 # Get Virtual Network default subnet id
 AKS_VNET_SUBNET_DEFAULT_ID=$(az network vnet subnet show \
                            --resource-group ${AKS_RESOURCE_GROUP} \
@@ -67,6 +96,11 @@ AKS_VNET_SUBNET_DEFAULT_ID=$(az network vnet subnet show \
                            --query id \
                            -o tsv)
 echo ${AKS_VNET_SUBNET_DEFAULT_ID}
+
+## windows cmd
+az network vnet list --resource-group %AKS_RESOURCE_GROUP%
+az network vnet subnet list --resource-group %AKS_RESOURCE_GROUP% --vnet-name %AKS_VNET%
+
 ```
 
 
