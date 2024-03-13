@@ -15,9 +15,19 @@ export REGION=centralus
 export AKS_CLUSTER=aks-autoscaling-demo
 echo $RESOURCE_GROUP, $REGION, $AKS_CLUSTER
 
+## Windows cmd
+set RESOURCE_GROUP=aks-rg1-autoscaling
+set REGION=centralus
+set AKS_CLUSTER=aks-autoscaling-demo
+echo %RESOURCE_GROUP%, %REGION%, %AKS_CLUSTER%
+
+
 # Create Resource Group
 az group create --location ${REGION} \
                 --name ${RESOURCE_GROUP}
+## windows cmd
+az group create --location %REGION% --name %RESOURCE_GROUP%
+
 
 # Create AKS cluster and enable the cluster autoscaler
 az aks create --resource-group ${RESOURCE_GROUP} \
@@ -27,7 +37,9 @@ az aks create --resource-group ${RESOURCE_GROUP} \
               --node-count 1 \
               --enable-cluster-autoscaler \
               --min-count 1 \
-              --max-count 5 
+              --max-count 5
+## windows cmd
+az aks create --resource-group %RESOURCE_GROUP% --name %AKS_CLUSTER% --enable-managed-identity --generate-ssh-keys --node-count 1 --enable-cluster-autoscaler --min-count 1 --max-count 5
 
 # Configure Credentials
 az aks get-credentials --name ${AKS_CLUSTER}  --resource-group ${RESOURCE_GROUP} 
